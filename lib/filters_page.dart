@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-bool isGlutenFree = false;
-bool isLactoseFree = false;
-bool isVegetarian = false;
-bool isVegan = false;
+class FilterSettings{
+  bool isGlutenFree = false;
+  bool isLactoseFree = false;
+  bool isVegetarian = false;
+  bool isVegan = false;
+}
 
 class FiltersPage extends StatefulWidget {
   const FiltersPage({super.key});
@@ -36,13 +39,11 @@ class _FiltersPageState extends State<FiltersPage> {
                   subtile: 'only include gluten free meals',
                 ),
                 Switch(
-                  value: isGlutenFree,
+                  value: context.read<FilterSettings>().isGlutenFree,
                   onChanged: (value) {
                     setState(() {
-                      isGlutenFree=value;
+                      context.read<FilterSettings>().isGlutenFree=value;
                     });
-
-
                   },
                 ),
               ],
@@ -56,10 +57,10 @@ class _FiltersPageState extends State<FiltersPage> {
                   subtile: 'only include lactose free meals',
                 ),
                 Switch(
-                  value: isLactoseFree,
+                  value: context.read<FilterSettings>().isLactoseFree,
                   onChanged: (value) {
                     setState(() {
-                      isLactoseFree=value;
+                      context.read<FilterSettings>().isLactoseFree=value;
                     });
 
 
@@ -76,10 +77,10 @@ class _FiltersPageState extends State<FiltersPage> {
                   subtile: 'only include veg meals',
                 ),
                 Switch(
-                  value: isVegetarian,
+                  value: context.read<FilterSettings>().isVegetarian,
                   onChanged: (value) {
                     setState(() {
-                      isVegetarian=value;
+                      context.read<FilterSettings>().isVegetarian=value;
                     });
 
 
@@ -96,10 +97,10 @@ class _FiltersPageState extends State<FiltersPage> {
                   subtile: 'only include vegan meals',
                 ),
                 Switch(
-                  value: isVegan,
+                  value: context.read<FilterSettings>().isVegan,
                   onChanged: (value) {
                     setState(() {
-                      isVegan=value;
+                      context.read<FilterSettings>().isVegan=value;
                     });
 
 

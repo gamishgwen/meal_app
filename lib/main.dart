@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:meal_app/category_foods_page.dart';
+import 'package:meal_app/dummy_food.dart';
 import 'package:meal_app/filters_page.dart';
-import 'package:meal_app/food_details_page.dart';
 import 'package:meal_app/home_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MealApp());
@@ -13,7 +13,12 @@ class MealApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home:HomePage() ,);
+    return ListenableProvider(
+      create: (context) => Foods(),
+        child: Provider(
+            create: (context) => FilterSettings(),
+            child: const MaterialApp(
+              home: HomePage(),
+            )));
   }
 }
-

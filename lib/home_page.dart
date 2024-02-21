@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meal_app/categories.dart';
 import 'package:meal_app/categories_page.dart';
-import 'package:meal_app/category_foods_page.dart';
 import 'package:meal_app/favorite_page.dart';
 import 'package:meal_app/filters_page.dart';
 
@@ -21,7 +19,7 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            DrawerHeader(
+            const DrawerHeader(
               decoration: BoxDecoration(color: Colors.brown),
               child: Column(
                 children: [
@@ -30,7 +28,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            ListTile(onTap: () {
+               ListTile(onTap: () {
               Navigator.of(context).pop();
             },
               title: Row(children: [

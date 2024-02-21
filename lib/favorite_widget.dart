@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:meal_app/dummy_food.dart';
+import 'package:provider/provider.dart';
 
 import 'food.dart';
 
@@ -16,12 +18,13 @@ class _FavoriteState extends State<Favorite> {
     return IconButton(
         onPressed: () {
           setState(() {
-            // widget.food.isFavorite = !widget.food.isFavorite;
-            if (widget.food.isFavorite == true) {
-              widget.food.isFavorite = false;
-            } else {
-              widget.food.isFavorite = true;
-            }
+            context.read<Foods>().toggleFavorite(widget.food.id);
+            // // widget.food.isFavorite = !widget.food.isFavorite;
+            // if (widget.food.isFavorite == true) {
+            //   widget.food.isFavorite = false;
+            // } else {
+            //   widget.food.isFavorite = true;
+            // }
           });
         },
         icon: Icon(
