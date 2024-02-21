@@ -29,6 +29,12 @@ class _CategoriesSectionState extends State<CategoriesSection>
     controller.forward();
     super.initState();
   }
+  
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
