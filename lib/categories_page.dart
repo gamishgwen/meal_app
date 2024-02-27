@@ -15,7 +15,7 @@ class CategoriesSection extends StatefulWidget {
 class _CategoriesSectionState extends State<CategoriesSection>
     with SingleTickerProviderStateMixin {
   late final AnimationController controller = AnimationController(
-      duration: const Duration(milliseconds: 2000), vsync: this);
+      duration: const Duration(milliseconds: 2000), vsync: this)..forward();
   late final Animation<Offset> translateAnimation = Tween<Offset>(
           begin: Offset(0, MediaQuery.of(context).size.height),
           end: Offset.zero)
@@ -29,7 +29,7 @@ class _CategoriesSectionState extends State<CategoriesSection>
     controller.forward();
     super.initState();
   }
-  
+
   @override
   void dispose() {
     controller.dispose();
